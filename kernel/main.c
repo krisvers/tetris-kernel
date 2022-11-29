@@ -9,16 +9,16 @@ struct Tetramino next = {
 	1, 11, 1, 0
 };
 struct Tetramino test = {
-	30, 30, 0, 0
+	30, 20, 0, 0
 };
 struct Tetramino test1 = {
-	34, 30, 0, 0
+	30, 25, 0, 1
 };
 struct Tetramino test2 = {
-	38, 30, 1, 0
+	30, 30, 0, 2
 };
 struct Tetramino test3 = {
-	50, 30, 0, 0
+	35, 20, 0, 3
 };
 struct Tetramino test4 = {
 	50, 30, 0, 0

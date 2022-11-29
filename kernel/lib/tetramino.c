@@ -1,7 +1,7 @@
 #include <tetramino.h>
 #include <video.h>
 
-static char tetraminos[84] = {
+static char tetraminos[] = {
     c_c, c_c, c_c, c_c,     //  long I and rotation
     c__, c__, c__, c__,
     c__, c__, c__, c__,
@@ -155,25 +155,25 @@ char rot[] = {
 
 void draw_tetramino(struct Tetramino * ent) {
 	for (int x = 0; x < 16; x += 4) {
-		for (int y = 0; y < 12; y += 4) {
-            if (tetraminos[ent->type * 12 + (y) + x/4] != 0)
+		for (int y = 0; y < 16; y += 4) {
+            if (tetraminos[ent->type * 16 + (y) + x/4] != 0)
 			{
-                pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y, tetraminos[ent->type * 12 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+1, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+2, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+3, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+1, tetraminos[ent->type * 12 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+2, tetraminos[ent->type * 12 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+3, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y, tetraminos[ent->type * 12 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+1, tetraminos[ent->type * 12 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+2, tetraminos[ent->type * 12 + (y) + x/4]);
-			    pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+3, tetraminos[ent->type * 12 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y, tetraminos[ent->type * 12 + (y) + x/4]);
-			    pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+1, tetraminos[ent->type * 12 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+2, tetraminos[ent->type * 12 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+3, tetraminos[ent->type * 12 + (y) + x/4]);
+                pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+		    	pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+		    	pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+    			pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+		    	pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+    			pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+			    pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+			    pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+	    		pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
+    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
             }
 		}
 	}
