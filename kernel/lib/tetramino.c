@@ -2,33 +2,151 @@
 #include <video.h>
 
 static char tetraminos[84] = {
+    c_c, c_c, c_c, c_c,     //  long I and rotation
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+
     c_c, c_c, c_c, c_c,
     c__, c__, c__, c__,
     c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+    c_c, c__, c__, c__,
+
 
     c_y, c_y, c__, c__,
     c_y, c_y, c__, c__,
     c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_y, c_y, c__, c__,
+    c_y, c_y, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_y, c_y, c__, c__,
+    c_y, c_y, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_y, c_y, c__, c__,
+    c_y, c_y, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
 
     c_p, c_p, c_p, c__,
     c__, c_p, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_p, c__, c__, c__,
+    c_p, c_p, c__, c__,
+    c_p, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c__, c_p, c__, c__,
+    c_p, c_p, c_p, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c__, c_p, c__, c__,
+    c_p, c_p, c__, c__,
+    c__, c_p, c__, c__,
+    c__, c__, c__, c__,
+
+
+    c_o, c_o, c__, c__,
+    c__, c_o, c__, c__, 
+    c__, c_o, c__, c__, 
+    c__, c__, c__, c__,
+
+    c__, c__, c_o, c__,
+    c_o, c_o, c_o, c__, 
+    c__, c__, c__, c__, 
     c__, c__, c__, c__,
 
     c_o, c__, c__, c__,
     c_o, c__, c__, c__, 
     c_o, c_o, c__, c__, 
+    c__, c__, c__, c__,
 
-    c__, c_g, c_g, c__, 
-    c_g, c_g, c__, c__, 
+    c_o, c_o, c_o, c__,
+    c_o, c__, c__, c__, 
     c__, c__, c__, c__, 
+    c__, c__, c__, c__,
+
+
+    c__, c_g, c_g, c__,
+    c_g, c_g, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_g, c__, c__, c__,
+    c_g, c_g, c__, c__,
+    c__, c_g, c__, c__,
+    c__, c__, c__, c__,
+
+    c__, c_g, c_g, c__,
+    c_g, c_g, c__, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_g, c__, c__, c__,
+    c_g, c_g, c__, c__,
+    c__, c_g, c__, c__,
+    c__, c__, c__, c__,
+
+
+    c_b, c_b, c__, c__,
+    c_b, c__, c__, c__,
+    c_b, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_b, c_b, c_b, c__,
+    c__, c__, c_b, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
 
     c__, c_b, c__, c__,
-    c__, c_b, c__, c__, 
-    c_b, c_b, c__, c__,  
+    c__, c_b, c__, c__,
+    c_b, c_b, c__, c__,
+    c__, c__, c__, c__,
 
-    c_r, c_r, c__, c__, 
-    c__, c_r, c_r, c__, 
-    c__, c__, c__, c__, 
+    c__, c__, c_b, c__,
+    c_b, c_b, c_b, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+
+    c_r, c_r, c__, c__,
+    c__, c_r, c_r, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c__, c_r, c__, c__,
+    c_r, c_r, c__, c__,
+    c_r, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c_r, c_r, c__, c__,
+    c__, c_r, c_r, c__,
+    c__, c__, c__, c__,
+    c__, c__, c__, c__,
+
+    c__, c_r, c__, c__,
+    c_r, c_r, c__, c__,
+    c_r, c__, c__, c__,
+    c__, c__, c__, c__,
 };
 
 char rot[] = {
