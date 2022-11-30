@@ -154,27 +154,15 @@ char rot[] = {
 };
 
 void draw_tetramino(struct Tetramino * ent) {
-	for (int x = 0; x < 16; x += 4) {
-		for (int y = 0; y < 16; y += 4) {
-            if (tetraminos[ent->type * 16 + (y) + x/4] != 0)
-			{
-                pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+1, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-		    	pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-			    pixel_vidmem(ent->x * 4 + x+2, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-			    pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+1, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-	    		pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+2, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-    			pixel_vidmem(ent->x * 4 + x+3, ent->y * 4 + y+3, tetraminos[(ent->type * 4 + ent->rotation) * 16 + (y) + x/4]);
-            }
+	for (int x = 0; x < 4; x++) {
+		for (int y = 0; y < 4; y++) {
+			if (tetraminos[ent->type * 4 + ent->rotation * 16 + y * 4 + x] != 0) {
+				for (int a = 0; a < 4; a++) {
+					for (int b = 0; b < 4; b++) {
+						pixel_vidmem(x * 4 + a + ent->x, y*4 + b + ent->y, tetraminos[ent->type * 4 + ent->rotation * 16 + y * 4 +x]);
+					}
+				}
+			}
 		}
 	}
 }
