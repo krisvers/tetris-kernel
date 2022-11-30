@@ -9,7 +9,7 @@ struct Tetramino next = {
 	1, 11, 1, 0
 };
 struct Tetramino test = {
-	30, 20, 0, 0
+	140, 60, 0, 0
 };
 struct Tetramino test1 = {
 	30, 25, 0, 1
@@ -28,14 +28,14 @@ struct Tetramino test5 = {
 };
 
 void draw_borders() {
-	for (int i = 0; i < 40; i++) {
-		pixel_vidmem(i+120, 60, 0xF);
-		pixel_vidmem(i+120, 140, 0xF);
+	for (int i = 0; i < 42; i++) {
+		pixel_vidmem(i+139, 59, 0xF);
+		pixel_vidmem(i+139, 141, 0xF);
 	}
 
-	for (int i = 0; i < 80; i++) {
-		pixel_vidmem(120, 60+i, 0xF);
-		pixel_vidmem(160, 60+i, 0xF);
+	for (int i = 0; i < 82; i++) {
+		pixel_vidmem(139, 59+i, 0xF);
+		pixel_vidmem(181, 59+i, 0xF);
 	}
 }
 
