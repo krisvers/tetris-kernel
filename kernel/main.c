@@ -8,23 +8,8 @@ bool win = false;
 struct Tetramino next = {
 	1, 11, 1, 0
 };
-struct Tetramino test = {
-	140, 60, 0, 0
-};
-struct Tetramino test1 = {
-	30, 25, 0, 1
-};
-struct Tetramino test2 = {
-	30, 30, 0, 2
-};
-struct Tetramino test3 = {
-	35, 20, 0, 3
-};
-struct Tetramino test4 = {
-	50, 30, 0, 0
-};
-struct Tetramino test5 = {
-	50, 30, 0, 0
+struct Tetramino current = {
+	140, 60, 8, 2
 };
 
 void draw_borders() {
@@ -41,12 +26,11 @@ void draw_borders() {
 
 void render() {
 	draw_borders();
-	draw_tetramino(&test);
-	draw_tetramino(&test1);
-	draw_tetramino(&test2);
-	draw_tetramino(&test3);
-	draw_tetramino(&test4);
-	draw_tetramino(&test5);
+	draw_tetramino(&current);
+}
+
+void gamelogic() {
+	
 }
 
 void update() {
@@ -56,7 +40,7 @@ void update() {
 
 	swap_buffers();
 
-	//gamelogic();
+	gamelogic();
 
 	for (int i = 0; i < 0x26FFFF; i++) {
 		asm("nop");
