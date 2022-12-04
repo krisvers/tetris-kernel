@@ -30,6 +30,8 @@ void render() {
 	draw_tetramino(&current);
 	check_collision(&current);
 
+	print_str(0, 0, "Its Tetris Time!", c_r);
+
 	current.y += 4;
 }
 
@@ -46,7 +48,7 @@ void update() {
 
 	gamelogic();
 
-	for (int i = 0; i < 0x5FFFFFF; i++) {
+	for (int i = 0; i < 0x7FFFFFF; i++) {
 		asm("nop");
 	}
 }
