@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdbool.h>
+#include <video.h>
+
 #define c__ 0
 #define c_r 64
 #define c_o 66
@@ -16,3 +19,5 @@ struct Tetramino {
 };
 
 void draw_tetramino(struct Tetramino * ent);
+void draw_placed();
+bool check_collision(struct Tetramino * ent);

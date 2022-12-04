@@ -9,24 +9,28 @@ struct Tetramino next = {
 	1, 11, 1, 0
 };
 struct Tetramino current = {
-	140, 60, 8, 2
+	140, 60, 0, 1
 };
 
 void draw_borders() {
 	for (int i = 0; i < 42; i++) {
 		pixel_vidmem(i+139, 59, 0xF);
-		pixel_vidmem(i+139, 141, 0xF);
+		pixel_vidmem(i+139, 140, 0xF);
 	}
 
 	for (int i = 0; i < 82; i++) {
 		pixel_vidmem(139, 59+i, 0xF);
-		pixel_vidmem(181, 59+i, 0xF);
+		pixel_vidmem(180, 59+i, 0xF);
 	}
 }
 
 void render() {
 	draw_borders();
+	draw_placed();
 	draw_tetramino(&current);
+	check_collision(&current);
+
+	current.y += 4;
 }
 
 void gamelogic() {
@@ -42,7 +46,7 @@ void update() {
 
 	gamelogic();
 
-	for (int i = 0; i < 0x26FFFF; i++) {
+	for (int i = 0; i < 0x5FFFFFF; i++) {
 		asm("nop");
 	}
 }
