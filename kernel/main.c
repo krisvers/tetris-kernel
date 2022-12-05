@@ -4,6 +4,9 @@
 #include <font.h>
 
 bool win = false;
+unsigned int move = 0;
+unsigned int randrot = 0;
+unsigned int randtype = 0;
 
 struct Tetramino next = {
 	197, 77, 1, 0
@@ -44,6 +47,7 @@ void render() {
 	draw_tetramino(&current);
 
 	current.y += 4;
+	current.x += 4 * move;
 }
 
 void gamelogic() {
@@ -51,14 +55,12 @@ void gamelogic() {
 		current = next;
 		current.x = 152;
 		current.y = 60;
-		next.type++;
-		next.rotation++;
-		if (next.rotation > 3) {
-			next.rotation = 0;
-		}
-		if (next.type > 7) {
-			next.type = next.type - 7;
-		}
+		next.rotation = randrot;
+		next.type = randtype;
+	}
+
+	if (current.x < 160) {
+		current.x = 160;
 	}
 }
 
@@ -71,8 +73,25 @@ void update() {
 
 	gamelogic();
 
-	for (int i = 0; i < 0x2AFFFFF; i++) {
+	for (int i = 0; i < 0x3FFFFFF; i++) {
 		asm("nop");
+	}
+
+	if (read_key_char() == 'a') {
+		move = -1;
+	} else if (read_key_char() == 'd') {
+		move = 1;
+	} else {
+		move = 0;
+	}
+
+	randtype++;
+	randrot++;
+	if (randtype > 6) {
+		randtype = 0;
+	}
+	if (randrot > 3) {
+		randrot = 0;
 	}
 }
 
