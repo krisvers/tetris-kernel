@@ -13,3 +13,4 @@ struct Tetramino {
 void draw_tetramino(struct Tetramino * ent);
 void draw_placed();
 bool check_collision(struct Tetramino * ent);
+bool check_line();

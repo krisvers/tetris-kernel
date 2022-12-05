@@ -178,6 +178,24 @@ void draw_placed() {
     }
 }
 
+bool check_line() {
+    for (int y = 19; y > 0; y--) {
+        bool diff = 0;
+        for (int x = 0; x < 10; x++) {
+            if (placed[y * 10 + x] == 0)
+                diff++;
+        }
+        if (!diff) {
+            for (int a = y; a > 0; a--) {
+                for (int b = 0; b < 10; b++) {
+                    placed[(a+1) * 10 + b] = 0;
+                    placed[(a+1) * 10 + b] = placed[a * 10 + b];
+                }
+            }
+        }
+    }
+}
+
 bool check_collision(struct Tetramino * ent) {
     bool collision = false;
     for (int x = 0; x < 4; x++) {
