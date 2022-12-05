@@ -44,11 +44,6 @@ static char tetraminos[] = {
     c__, c__, c__, c__,
     c__, c__, c__, c__,
 
-    c_y, c_y, c__, c__,
-    c_y, c_y, c__, c__,
-    c__, c__, c__, c__,
-    c__, c__, c__, c__,
-
 
     c_p, c_p, c_p, c__,
     c__, c_p, c__, c__,
@@ -187,7 +182,7 @@ bool check_collision(struct Tetramino * ent) {
     bool collision = false;
     for (int x = 0; x < 4; x++) {
         for (int y = 0; y < 4; y++) {
-            if (tetraminos[ent->type * 64 + ent->rotation * 16 + (y * 4) + (x * 4)] != 0) {
+            if (tetraminos[ent->type * 64 + ent->rotation * 16 + (y * 4) + (x)] != 0) {
                 if (placed[((ent->y - 60)/4 + y)* 10 + (ent->x - 140)/4 + x] != 0 || ((ent->y - 60)/4 + y)* 10 + (ent->x - 140)/4 + x > 200) {
                     collision = true;
                 }
@@ -200,11 +195,11 @@ bool check_collision(struct Tetramino * ent) {
         for (int x = 0; x < 4; x++) {
            for (int y = 0; y < 4; y++) {
                 if (tetraminos[ent->type * 64 + ent->rotation * 16 + (y * 4) + x] != 0) {
-                    placed[((ent->y+4 - 60)/4 + y)* 10 + (ent->x - 140)/4 + x] = tetraminos[ent->type * 64 + ent->rotation * 16 + (y * 4) + x];
+                    placed[((ent->y-4 - 60)/4 + y) * 10 + (ent->x - 140)/4 + x] = tetraminos[ent->type * 64 + ent->rotation * 16 + (y * 4) + x];
                 }
             }
         }
-        ent->y = 0;
+        ent->y = 60;
     } else {
         pixel_vidmem(0, 0, c_r);
     }

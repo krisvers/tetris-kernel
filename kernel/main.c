@@ -51,6 +51,14 @@ void gamelogic() {
 		current = next;
 		current.x = 152;
 		current.y = 60;
+		next.type++;
+		next.rotation++;
+		if (next.rotation > 3) {
+			next.rotation = 0;
+		}
+		if (next.type > 7) {
+			next.type = next.type - 7;
+		}
 	}
 }
 
