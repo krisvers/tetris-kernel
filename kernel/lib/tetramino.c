@@ -1,6 +1,6 @@
 #include <tetramino.h>
 
-static char placed[200];
+static char placed[200] = { c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c__, c_p, c_p, c_b, c_r, c_g, c_g, c_g, c_g, c__, c__, c_p, c_p, c_p, c_p, c_p, c_p, c_p, c_p, c_p, c__, c_p, c_p, c_b, c_r, c_g, c_g, c_g, c_g, c_g, };
 
 static char tetraminos[] = {
     c_c, c_c, c_c, c_c,     //  long I and rotation
@@ -189,7 +189,7 @@ bool check_line() {
             for (int a = y; a > 0; a--) {
                 for (int b = 0; b < 10; b++) {
                     placed[(a+1) * 10 + b] = 0;
-                    placed[(a+1) * 10 + b] = placed[a * 10 + b];
+                    placed[(a+1) * 10 + b] = placed[(a) * 10 + b];
                 }
             }
         }

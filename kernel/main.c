@@ -69,28 +69,31 @@ void gamelogic() {
 	switch (current.type) {
 		case 0:
 			if (current.rotation == 0) {
-				if (current.x > 190) {
-					current.x = 190;
+				if (current.x > 176) {
+					current.x = 176;
 				}
 			} else if (current.rotation % 2 == 0) {
 				if (current.x > 164) {
 					current.x = 164;
 				}
 			} else {
-				if (current.x > 180) {
-					current.x = 180;
+				if (current.x > 176) {
+					current.x = 176;
 				}
 			}
+			break;
 		case 1:
 			if (current.x > 172) {
 				current.x = 172;
 			}
+			break;
 		case 2:
 			if (current.rotation % 2 != 0) {
 				if (current.x > 172) {
 					current.x = 172;
 				}
 			}
+			break;
 	}
 
 	check_line();
@@ -117,30 +120,34 @@ void update() {
 		}
 	}
 
-	for (int i = 0; i < 0x1FFFFF/speed; i++) {
+	for (int i = 0; i < 0xDFFF/speed; i++) {
 		asm("nop");
+		for (int j = 0; j < 24; j++) {
+			input = read_key_char();
 
-		input = read_key_char();
+			move = 0;
+			speed = 1;
 
-		move = 0;
-		speed = 1;
-
-		if (input == 'a') 
-			move = -1;
-		if (input == 'd')
-			move = 1;
-		if (input == 's')
-			speed = 4;
-		if (input == ' ')
-			speed = 1000;
-		if (input == 'w')
-			current.rotation++;
-			if (current.rotation > 3)
-				current.rotation = 0;
+			if (input == 'a') 
+				move = -1;
+			if (input == 'd')
+				move = 1;
+			if (input == 's')
+				speed = 4;
+			if (input == ' ')
+				speed = 1000;
+			if (input == 'w')
+				current.rotation++;
+				if (current.rotation > 3)
+					current.rotation = 0;
+		}
 	}
 
-	randtype++;
-	randrot++;
+	randtype+= 1;
+	randrot+= 1;
+	if (randtype * 2 < 6) {
+		randtype *= 2;
+	}
 	if (randtype > 6) {
 		randtype = 0;
 	}
